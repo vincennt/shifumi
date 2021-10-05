@@ -1,7 +1,7 @@
 body {
     background: rgb(238, 174, 202);
     background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
-    color: wheat
+    color: black
 }
 
 .rainbow {
@@ -32,4 +32,9 @@ h3 {
 section {
     display: flex;
     justify-content: space-evenly;
+}
+
+.reset_button_adjust {
+    margin-left: auto;
+    margin-right: auto;
 }

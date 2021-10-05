@@ -8,24 +8,58 @@ imageFeuilles.setAttribute("src", "2-feuille.jpg")
 var imageCiseaux = document.getElementById("ciseaux")
 imageCiseaux.setAttribute("src", "3-ciseaux.jpg")
 
-const buttons = document.querySelectorAll("button")
-for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener('click', function() {
+var equal = "égalité";
+var win = "gagné";
+var lose = "perdu";
+var txt_equal = "égalité";
+var txt_win = "Vous gagnez !";
+var txt_lose = "Vous avez perdu.";
+var user_point = 0;
+var ia_point = 0;
+var bet = ["pierre", "feuille", "ciseaux"];
+var result = document.getElementById("boutton_result");
+result.innerHTML = '';
+var txt_result = '';
 
-        const joueur = buttons[i].innerHTML;
-        const robot = buttons[Math.floor(Math.random() * buttons.length)].innerHTML;
-        let resultat = "";
-        if (joueur === robot) {
-            resultat = "Egalité";
-        } else if ((joueur === "Pierre" && robot === "Ciseaux") || (joueur === "Ciseaux" && robot === "Feuilles") || (joueur === "Feuilles" && robot === "Pierre")) {
-            resultat = "Gagné";
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
+
+function PFC(player_bet) {
+    var i = Number(player_bet);
+    var j = getRandomInt(3);
+
+    if (user_point < 3 && ia_point < 3) {
+        result.innerHTML += "(vous) <b>" + bet[i] + "</b> - (IA) <b>" + bet[j] + "</b> : ";
+
+        if (i === j) {
+            result.innerHTML += "<span class= equal>" + equal + "</span><br />";
+        } else if ((i == 0 && j == 2) || (i == 1 && j == 0) || (i == 2 && j == 1)) {
+            result.innerHTML += "<span class= win>" + win + "</span><br />";
+            user_point++;
         } else {
-            resultat = "Perdu";
+            result.innerHTML += "<span class=lose>" + lose + "</span><br />";
+            ia_point++;
         }
+        result.innerHTML += "Score : " + user_point + " - " + ia_point + "<br />";
+    }
 
-        document.querySelector(".resultat").innerHTML = ` Joueur : ${joueur} Robot : ${robot} Résultat : ${resultat}`;
+    if ((user_point >= 3 || ia_point >= 3) && txt_result == '') {
+        if (user_point == ia_point) {
+            txt_result = "<span class= equal>" + txt_equal + "</span><br />";
+        } else if (user_point > ia_point) {
+            txt_result = "<span class=win>" + txt_win + "</span><br />";
+        } else {
+            txt_result = "<span class=lose>" + txt_lose + "</span><br />";
+        }
+        result.innerHTML += "<h4>Résultat final : <b>" + txt_result + "</b></h4>";
+        result.innerHTML += "<button class=reset_button_adjust type=button onclick= PFC_reset();>Rejouer ?</button><br />";
+    }
+}
 
-    });
-
-
+function PFC_reset() {
+    txt_result = '';
+    result.innerHTML = '';
+    user_point = 0;
+    ia_point = 0;
 }
