@@ -8,7 +8,12 @@ imageFeuilles.setAttribute("src", "2-feuille.jpg")
 var imageCiseaux = document.getElementById("ciseaux")
 imageCiseaux.setAttribute("src", "3-ciseaux.jpg")
 
+// imgSlide = setInterval("slide", 01);
 
+// function slide() {
+
+// }
+var imageia = document.getElementById("ia_choice")
 
 function PFC_reset() {
     txt_result = '';
@@ -34,10 +39,20 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
 
+
 function PFC(player_bet) {
     var i = Number(player_bet);
     var j = getRandomInt(3);
 
+    if (j == 0) {
+        imageia.setAttribute("src", "1-pierre.jpg")
+    }
+    if (j == 2) {
+        imageia.setAttribute("src", "3-ciseaux.jpg")
+    }
+    if (j == 1) {
+        imageia.setAttribute("src", "2-feuille.jpg")
+    }
     if (user_point < 3 && ia_point < 3) {
         result.innerHTML += "(vous) <b>" + bet[i] + "</b> - (IA) <b>" + bet[j] + "</b> : ";
 

@@ -18,9 +18,14 @@
         faisant une partie de chifoumi ? Le perdant fait la vaisselle et en quelques secondes le problème est réglé. Bien évidemment il existe de nombreux cas possible dans lequel une partie de chifoumi vous sera bien utile !</p>
     <h3>Joueur vs I.A</h3>
     <section>
-        <button class="mb-4 PFC_button" onclick="PFC(this.value);" value="0">Pierre<img id="pierre"></img></button>
-        <button class="mb-4" onclick="PFC(this.value);" value="1">Feuilles<img id="feuilles"></img></button>
-        <button class="mb-4" onclick="PFC(this.value);" value="2">Ciseaux<img id="ciseaux"></img></button>
+        <button class="mb-4 PFC_button" onclick="PFC(this.value);" value="0"><img id="pierre"></img></button>
+        <button class="mb-4" onclick="PFC(this.value);" value="1"><img id="feuilles"></img></button>
+        <button class="mb-4" onclick="PFC(this.value);" value="2"><img id="ciseaux"></img></button>
+    </section>
+    <section class="d-flex justify-content-end">
+        <div class="divimage me-5"><img class="img-ia" src="ia.jpeg" alt="photo IA"></div>
+        <div class="size"><img id="ia_choice"></img>
+        </div>
     </section>
     <div id="boutton_result"></div>
     <script src="index.js"></script>

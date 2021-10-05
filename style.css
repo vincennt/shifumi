@@ -54,3 +54,13 @@ section {
 ::selection {
     color: white;
 }
+
+.img-ia {
+    width: 200px;
+    height: 200px;
+}
+
+.size {
+    width: 200px;
+    height: 200px;
+}
