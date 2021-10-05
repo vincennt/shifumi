@@ -38,3 +38,19 @@ section {
     margin-left: auto;
     margin-right: auto;
 }
+
+.win {
+    color: greenyellow;
+}
+
+.lose {
+    color: red
+}
+
+.equal {
+    color: white
+}
+
+::selection {
+    color: white;
+}

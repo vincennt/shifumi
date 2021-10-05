@@ -8,6 +8,15 @@ imageFeuilles.setAttribute("src", "2-feuille.jpg")
 var imageCiseaux = document.getElementById("ciseaux")
 imageCiseaux.setAttribute("src", "3-ciseaux.jpg")
 
+
+
+function PFC_reset() {
+    txt_result = '';
+    result.innerHTML = '';
+    user_point = 0;
+    ia_point = 0;
+}
+
 var equal = "égalité";
 var win = "gagné";
 var lose = "perdu";
@@ -53,13 +62,6 @@ function PFC(player_bet) {
             txt_result = "<span class=lose>" + txt_lose + "</span><br />";
         }
         result.innerHTML += "<h4>Résultat final : <b>" + txt_result + "</b></h4>";
-        result.innerHTML += "<button class=reset_button_adjust type=button onclick= PFC_reset();>Rejouer ?</button><br />";
+        result.innerHTML += "<button  type=button onclick= PFC_reset();>Rejouer ?</button><br />";
     }
-}
-
-function PFC_reset() {
-    txt_result = '';
-    result.innerHTML = '';
-    user_point = 0;
-    ia_point = 0;
 }
